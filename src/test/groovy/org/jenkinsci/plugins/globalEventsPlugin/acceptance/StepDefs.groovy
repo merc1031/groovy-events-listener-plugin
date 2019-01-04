@@ -106,6 +106,9 @@ class StepDefs {
                 case "Computer.onTemporarilyOffline":
                     computerListener.onTemporarilyOffline(null, null)
                     break;
+                case "Computer.onConfigurationChange":
+                    computerListener.onConfigurationChange()
+                    break;
                 case "Queue.onEnterWaiting":
                     queueListener.onEnterWaiting(null)
                     break;

@@ -35,6 +35,7 @@ Feature: Groovy Script - Runtime
       | Computer.onOffline            | actEvent | -> ComputerListener.onOffline            |
       | Computer.onTemporarilyOnline  | actEvent | -> ComputerListener.onTemporarilyOnline  |
       | Computer.onTemporarilyOffline | actEvent | -> ComputerListener.onTemporarilyOffline |
+      | Computer.onConfigurationChange| actEvent | -> ComputerListener.onConfigurationChange|
       | Queue.onEnterWaiting          | actEvent | -> QueueListener.onEnterWaiting          |
       | Queue.onEnterBlocked          | actEvent | -> QueueListener.onEnterBlocked          |
       | Queue.onEnterBuildable        | actEvent | -> QueueListener.onEnterBuildable        |
