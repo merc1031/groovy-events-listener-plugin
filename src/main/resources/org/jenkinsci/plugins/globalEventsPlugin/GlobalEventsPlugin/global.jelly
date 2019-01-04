@@ -104,6 +104,12 @@
                         checked="${descriptor.isEventEnabled('ComputerListener.onTemporarilyOffline')}"
                     />
                 </f:entry>
+                <f:entry title="ConfigurationChange">
+                    <f:checkbox
+                        field="ComputerListener__onConfigurationChange"
+                        checked="${descriptor.isEventEnabled('ComputerListener.onConfigurationChange')}"
+                    />
+                </f:entry>
             </f:section>
             <f:section title="Job Queue">
                 <f:entry title="Waiting">

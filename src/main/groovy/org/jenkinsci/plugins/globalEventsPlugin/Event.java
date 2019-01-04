@@ -21,6 +21,7 @@ public final class Event {
     public static final String NODE_OFFLINE = "ComputerListener.onOffline";
     public static final String NODE_TEMP_ONLINE = "ComputerListener.onTemporarilyOnline";
     public static final String NODE_TEMP_OFFLINE = "ComputerListener.onTemporarilyOffline";
+    public static final String NODE_CONFIG_CHANGE = "ComputerListener.onConfigurationChange";
 
     public static final String QUEUE_WAITING = "QueueListener.onEnterWaiting";
     public static final String QUEUE_BLOCKED = "QueueListener.onEnterBlocked";
@@ -48,6 +49,7 @@ public final class Event {
             NODE_OFFLINE,
             NODE_TEMP_ONLINE,
             NODE_TEMP_OFFLINE,
+            NODE_CONFIG_CHANGE,
             QUEUE_WAITING,
             QUEUE_BLOCKED,
             QUEUE_BUILDABLE,

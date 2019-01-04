@@ -73,5 +73,13 @@ public class GlobalComputerListener extends ComputerListener {
             put("cause", cause);
         }});
     }
+
+    @Override
+    public void onConfigurationChange() {
+        this.getParentPluginDescriptor().processEvent(Event.NODE_CONFIG_CHANGE, log, new HashMap<Object, Object>() {{
+        }});
+    }
+
+
 }
 
