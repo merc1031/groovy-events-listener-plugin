@@ -175,6 +175,14 @@
                     />
                 </f:entry>
             </f:section>
+            <f:section title="Saveable Activity">
+                <f:entry title="Change">
+                    <f:checkbox
+                        field="SaveableListener__onChange"
+                        checked="${descriptor.isEventEnabled('SaveableListener.onChange')}"
+                    />
+                </f:entry>
+            </f:section>
             <f:section title="Scheduler">
                 <f:entry title="Schedule time" description="Raise PLUGIN_SCHEDULE event every $scheduledTime minutes. 0 - disabled">
                   <f:textbox field="scheduleTime" />

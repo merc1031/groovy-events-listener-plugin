@@ -46,6 +46,7 @@ Feature: Groovy Script - Runtime
       | Item.onDeleted                | actEvent | -> ItemListener.onDeleted                |
       | Item.onCopied                 | actEvent | -> ItemListener.onCopied                 |
       | Item.onCreated                | actEvent | -> ItemListener.onCreated                |
+      | Saveable.onChange             | actEvent | -> SaveableListener.onChange|
 
 
   Scenario: The plugin's package should be imported by default, so that I can make use of the 'Event' convenience class

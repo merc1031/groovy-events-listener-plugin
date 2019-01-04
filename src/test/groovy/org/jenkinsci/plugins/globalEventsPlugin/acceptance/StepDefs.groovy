@@ -11,6 +11,7 @@ import org.jenkinsci.plugins.globalEventsPlugin.GlobalItemListener
 import org.jenkinsci.plugins.globalEventsPlugin.GlobalRunListener
 import org.jenkinsci.plugins.globalEventsPlugin.GlobalComputerListener
 import org.jenkinsci.plugins.globalEventsPlugin.GlobalQueueListener
+import org.jenkinsci.plugins.globalEventsPlugin.GlobalSaveableListener
 import org.jenkinsci.plugins.globalEventsPlugin.LoggerTrap
 
 class StepDefs {
@@ -20,6 +21,7 @@ class StepDefs {
     GlobalComputerListener computerListener
     GlobalQueueListener queueListener
     GlobalItemListener itemListener
+    GlobalSaveableListener saveableListener
     LoggerTrap logger
     String groovyScript
     FormValidation validationResponse
@@ -45,6 +47,9 @@ class StepDefs {
         queueListener = new GlobalQueueListener()
         queueListener.parentPluginDescriptorOverride = plugin
         queueListener.log = logger
+        saveableListener = new GlobalSaveableListener()
+        saveableListener.parentPluginDescriptorOverride = plugin
+        saveableListener.log = logger
 
         itemListener = new GlobalItemListener()
         itemListener.parentPluginDescriptorOverride = plugin
@@ -142,6 +147,9 @@ class StepDefs {
                 case "Item.onCreated":
                     itemListener.onCreated(null)
                     break
+                case "Saveable.onChange":
+                    saveableListener.onChange(null, null)
+                    break;
             }
         } catch (Throwable t) {
             t.printStackTrace()
