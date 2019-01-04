@@ -35,6 +35,8 @@ public final class Event {
     public static final String ITEM_COPIED = "ItemListener.onCopied";
     public static final String ITEM_CREATED = "ItemListener.onCreated";
 
+    public static final String SAVEABLE_CHANGE = "SaveableListener.onChange";
+
     public static String[] getAll() {
         return new String[] {
             PLUGIN_STARTED,
@@ -60,6 +62,7 @@ public final class Event {
             ITEM_RENAMED,
             ITEM_LOCATION_CHANGED,
             ITEM_UPDATED,
+            SAVEABLE_CHANGE,
         };
     }
 }
