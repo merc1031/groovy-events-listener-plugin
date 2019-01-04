@@ -177,6 +177,9 @@ class StepDefs {
                 case "Saveable.onChange":
                     saveableListener.onChange(null, null)
                     break;
+                case "Saveable.onChange":
+                    saveableListener.onChange(null, null)
+                    break;
             }
         } catch (Throwable t) {
             t.printStackTrace()
