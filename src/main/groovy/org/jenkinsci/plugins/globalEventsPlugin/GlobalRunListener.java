@@ -64,5 +64,12 @@ public class GlobalRunListener extends RunListener<Run> {
             put("listener", listener);
         }});
     }
+
+    @Override
+    public void onInitialize(final Run run) {
+        this.getParentPluginDescriptor().processEvent(Event.JOB_INITIALIZE, log, new HashMap<Object, Object>() {{
+            put("run", run);
+        }});
+    }
 }
 

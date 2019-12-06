@@ -87,6 +87,10 @@
             <th style="background:lightblue;text-align:left;" colspan="2"><code><a href="https://javadoc.jenkins.io/hudson/model/listeners/RunListener.html">RunListener</a></code></th>
         </tr>
         <tr>
+            <td><code>RunListener.onInitialize</code></td>
+            <td>Called when a run is entering execution.</td>
+        </tr>
+        <tr>
             <td><code>RunListener.onStarted</code></td>
             <td>Called when a build is started (i.e. it was in the queue, and will now start running on an executor).</td>
         </tr>
@@ -101,6 +105,21 @@
         <tr>
             <td><code>RunListener.onDeleted</code></td>
             <td>Called right before a build is going to be deleted.</td>
+        </tr>
+        <tr>
+            <th style="background:lightblue;text-align:left;" colspan="2"><code><a href="https://javadoc.jenkins.io/hudson/models/NodeListener.html">NodeListener</a></code></th>
+        </tr>
+        <tr>
+            <td><code>NodeListener.onCreated</code></td>
+            <td>Called when a node is created.</td>
+        </tr>
+        <tr>
+            <td><code>NodeListener.onUpdated</code></td>
+            <td>Called when a node is updated.</td>
+        </tr>
+        <tr>
+            <td><code>NodeListener.onDeleted</code></td>
+            <td>Called when a node is deleted.</td>
         </tr>
         <tr>
             <th style="background:lightblue;text-align:left;" colspan="2"><code><a href="https://javadoc.jenkins.io/hudson/slaves/ComputerListener.html">ComputerListener</a></code></th>
@@ -136,12 +155,24 @@
             <td>Called when a job enters the queue.</td>
         </tr>
         <tr>
+            <td><code>QueueListener.onLeaveWaiting</code></td>
+            <td>Called when leaving the waiting state.</td>
+        </tr>
+        <tr>
             <td><code>QueueListener.onEnterBlocked</code></td>
             <td>Called when a job isn't ready to start for some reason other than executor availability.</td>
         </tr>
         <tr>
+            <td><code>QueueListener.onLeaveBlocked</code></td>
+            <td>Called when no one is vetoing.</td>
+        </tr>
+        <tr>
             <td><code>QueueListener.onEnterBuildable</code></td>
             <td>Called when a queued job is ready to run when an executor is available.</td>
+        </tr>
+        <tr>
+            <td><code>QueueListener.onLeaveBuildable</code></td>
+            <td>Called when it leaves the building state.</td>
         </tr>
         <tr>
             <td><code>QueueListener.onLeft</code></td>

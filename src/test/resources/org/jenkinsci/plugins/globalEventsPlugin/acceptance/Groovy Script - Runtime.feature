@@ -26,19 +26,26 @@ Feature: Groovy Script - Runtime
 
     Examples:
       | Event                         | Key      | Value                                    |
+      | Run.onInitialize              | actEvent | -> RunListener.onInitialize              |
       | Run.onStarted                 | actEvent | -> RunListener.onStarted                 |
       | Run.onCompleted               | actEvent | -> RunListener.onCompleted               |
       | Run.onFinalized               | actEvent | -> RunListener.onFinalized               |
       | Run.onDeleted                 | actEvent | -> RunListener.onDeleted                 |
+      | Node.onCreated                | actEvent | -> NodeListener.onCreated                |
+      | Node.onUpdated                | actEvent | -> NodeListener.onUpdated                |
+      | Node.onDeleted                | actEvent | -> NodeListener.onDeleted                |
       | Computer.onLaunchFailure      | actEvent | -> ComputerListener.onLaunchFailure      |
       | Computer.onOnline             | actEvent | -> ComputerListener.onOnline             |
       | Computer.onOffline            | actEvent | -> ComputerListener.onOffline            |
       | Computer.onTemporarilyOnline  | actEvent | -> ComputerListener.onTemporarilyOnline  |
       | Computer.onTemporarilyOffline | actEvent | -> ComputerListener.onTemporarilyOffline |
       | Computer.onConfigurationChange| actEvent | -> ComputerListener.onConfigurationChange|
-      | Queue.onEnterWaiting          | actEvent | -> QueueListener.onEnterWaiting          |
+      | Queue.onEnterWaiting          | actEvent | -> QueueListener.onLeaveWaiting          |
+      | Queue.onLeaveWaiting          | actEvent | -> QueueListener.onEnterWaiting          |
       | Queue.onEnterBlocked          | actEvent | -> QueueListener.onEnterBlocked          |
+      | Queue.onLeaveBlocked          | actEvent | -> QueueListener.onLeaveBlocked          |
       | Queue.onEnterBuildable        | actEvent | -> QueueListener.onEnterBuildable        |
+      | Queue.onLeaveBuildable        | actEvent | -> QueueListener.onLeaveBuildable        |
       | Queue.onLeft                  | actEvent | -> QueueListener.onLeft                  |
       | Item.onUpdated                | actEvent | -> ItemListener.onUpdated                |
       | Item.onLocationChanged        | actEvent | -> ItemListener.onLocationChanged        |
