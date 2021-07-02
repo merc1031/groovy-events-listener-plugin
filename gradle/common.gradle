@@ -20,7 +20,7 @@ repositories {
 
 ext {
     groovyVersion = '2.4.12'
-    customJvmArgs = ['-Xmx128m']
+    customJvmArgs = ['-XX:MaxPermSize=128m', '-Xmx128m']
 }
 
 configurations {
@@ -31,8 +31,8 @@ sourceSets.main.compileClasspath += configurations.providedCompile
 sourceSets.test.compileClasspath += configurations.providedCompile
 sourceSets.test.runtimeClasspath += configurations.providedCompile
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '5.6'
+task awrapper(type: Wrapper) {
+    gradleVersion = '7.1'
 
     def jvmOpts = customJvmArgs.join(' ')
     inputs.property('jvmOpts', jvmOpts)
@@ -75,17 +75,21 @@ subprojects {
 
 // enforce version...
 
-task enforceVersion << {
-    if (enforceVersionFlag) {
-        def foundVersion = JavaVersion.current()
-        if (foundVersion != enforceJavaVersion) {
-            throw new IllegalStateException("Wrong Java version; required is $enforceJavaVersion, but found $foundVersion")
+task enforceVersion {
+    doLast {
+        if (enforceVersionFlag){
+            def foundVersion = JavaVersion.current()
+            if (foundVersion != enforceJavaVersion){
+                throw new IllegalStateException("Wrong Java version; required is $enforceJavaVersion, but found $foundVersion")
+            }
         }
     }
 }
 
 compileTasks*.dependsOn(enforceVersion)
 
-task showMeCache << {
-    configurations.compile.each { println it }
+task showMeCache {
+    doLast {
+        configurations.compile.each { println it }
+    }
 }

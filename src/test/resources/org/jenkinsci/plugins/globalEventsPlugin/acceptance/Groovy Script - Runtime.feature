@@ -31,17 +31,17 @@ Feature: Groovy Script - Runtime
       | Run.onCompleted               | actEvent | -> RunListener.onCompleted               |
       | Run.onFinalized               | actEvent | -> RunListener.onFinalized               |
       | Run.onDeleted                 | actEvent | -> RunListener.onDeleted                 |
-      | Node.onCreated                | actEvent | -> NodeListener.onCreated                |
-      | Node.onUpdated                | actEvent | -> NodeListener.onUpdated                |
-      | Node.onDeleted                | actEvent | -> NodeListener.onDeleted                |
+      | Node.onCreated                | actEvent | -> NodeListener.onNodeCreated            |
+      | Node.onUpdated                | actEvent | -> NodeListener.onNodeUpdated            |
+      | Node.onDeleted                | actEvent | -> NodeListener.onNodeDeleted            |
       | Computer.onLaunchFailure      | actEvent | -> ComputerListener.onLaunchFailure      |
       | Computer.onOnline             | actEvent | -> ComputerListener.onOnline             |
       | Computer.onOffline            | actEvent | -> ComputerListener.onOffline            |
       | Computer.onTemporarilyOnline  | actEvent | -> ComputerListener.onTemporarilyOnline  |
       | Computer.onTemporarilyOffline | actEvent | -> ComputerListener.onTemporarilyOffline |
       | Computer.onConfigurationChange| actEvent | -> ComputerListener.onConfigurationChange|
-      | Queue.onEnterWaiting          | actEvent | -> QueueListener.onLeaveWaiting          |
-      | Queue.onLeaveWaiting          | actEvent | -> QueueListener.onEnterWaiting          |
+      | Queue.onEnterWaiting          | actEvent | -> QueueListener.onEnterWaiting          |
+      | Queue.onLeaveWaiting          | actEvent | -> QueueListener.onLeaveWaiting          |
       | Queue.onEnterBlocked          | actEvent | -> QueueListener.onEnterBlocked          |
       | Queue.onLeaveBlocked          | actEvent | -> QueueListener.onLeaveBlocked          |
       | Queue.onEnterBuildable        | actEvent | -> QueueListener.onEnterBuildable        |
