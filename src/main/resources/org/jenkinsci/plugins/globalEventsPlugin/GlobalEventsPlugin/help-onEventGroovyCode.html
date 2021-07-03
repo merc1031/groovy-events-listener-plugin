@@ -91,6 +91,11 @@
             <td>Called when a run is entering execution.</td>
         </tr>
         <tr>
+            <td><code>RunListener.onInitialize</code></td>
+            <td>Called when a build is initialized (entering execution).
+            </td>
+        </tr>
+        <tr>
             <td><code>RunListener.onStarted</code></td>
             <td>Called when a build is started (i.e. it was in the queue, and will now start running on an executor).</td>
         </tr>
@@ -145,10 +150,11 @@
             <td>Called when a node is marked temporarilyOffline by a user.</td>
         </tr>
         <tr>
-            <th style="background:lightblue;text-align:left;" colspan="2"><code><a href="https://javadoc.jenkins.io/hudson/model/queue/QueueListener.html">QueueListener</a></code></th>
             <td><code>ComputerListener.onConfigurationChange</code></td>
             <td>Called when the computer list is updated
             </td>
+        <tr>
+            <th style="background:lightblue;text-align:left;" colspan="2"><code><a href="http://javadoc.jenkins-ci.org/hudson/model/queue/QueueListener.html">QueueListener</a></code></th>
         </tr>
         <tr>
             <td><code>QueueListener.onEnterWaiting</code></td>
@@ -204,6 +210,14 @@
         <tr>
             <td><code>ItemListener.onUpdated</code></td>
             <td>Called after a job has its configuration updated.</td>
+        </tr>
+        <tr>
+            <th style="background:lightblue;text-align:left;" colspan="2"><code><a href="http://javadoc.jenkins-ci.org/hudson/model/listeners/SaveableListener.html">SaveableListener</a></code></th>
+        </tr>
+        <tr>
+            <td><code>SaveableListener.onChange</code></td>
+            <td>Called when any saveable has a change
+            </td>
         </tr>
         <tr>
             <th style="background:lightblue;text-align:left;" colspan="2"><code><a href="http://javadoc.jenkins-ci.org/hudson/model/listeners/SaveableListener.html">SaveableListener</a></code></th>

@@ -50,7 +50,7 @@ public final class Event {
             PLUGIN_STARTED,
             PLUGIN_STOPPED,
             PLUGIN_SCHEDULE,
-            JOB_INITIALIZE,
+            JOB_INITIALIZE, 
             JOB_DELETED,
             JOB_STARTED,
             JOB_FINALIZED,

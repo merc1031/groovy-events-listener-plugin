@@ -36,6 +36,13 @@ public class GlobalRunListener extends RunListener<Run> {
     }
 
     @Override
+    public void onInitialize(final Run run) {
+        this.getParentPluginDescriptor().processEvent(Event.JOB_INITIALIZE, log, new HashMap<Object, Object>() {{
+            put("run", run);
+        }});
+    }
+
+    @Override
     public void onDeleted(final Run run) {
         this.getParentPluginDescriptor().processEvent(Event.JOB_DELETED, log, new HashMap<Object, Object>() {{
             put("run", run);
@@ -62,13 +69,6 @@ public class GlobalRunListener extends RunListener<Run> {
         this.getParentPluginDescriptor().processEvent(Event.JOB_COMPLETED, log, new HashMap<Object, Object>() {{
             put("run", run);
             put("listener", listener);
-        }});
-    }
-
-    @Override
-    public void onInitialize(final Run run) {
-        this.getParentPluginDescriptor().processEvent(Event.JOB_INITIALIZE, log, new HashMap<Object, Object>() {{
-            put("run", run);
         }});
     }
 }

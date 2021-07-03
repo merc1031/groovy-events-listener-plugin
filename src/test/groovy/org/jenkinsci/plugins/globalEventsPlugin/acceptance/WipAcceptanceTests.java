@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         strict = false,
         plugin = {"pretty"},
-        tags = {"@wip", "not @ignore"}
+        tags = {"@wip", "~@ignore"}
 )
 public class WipAcceptanceTests {
 }

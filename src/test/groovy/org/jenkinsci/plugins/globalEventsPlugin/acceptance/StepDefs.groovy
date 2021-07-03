@@ -92,10 +92,10 @@ class StepDefs {
     @When('^the (.+) event is triggered$')
     void the_event_is_triggered(String method) {
         try {
-            switch (method) {
+            switch (method){
                 case "Run.onInitialize":
-                    runListener.onInitialize(null, null)
-                    break
+                    runListener.onInitialize(null)
+                    break;
                 case "Run.onStarted":
                     runListener.onStarted(null, null)
                     break
@@ -174,6 +174,9 @@ class StepDefs {
                 case "Item.onCreated":
                     itemListener.onCreated(null)
                     break
+                case "Saveable.onChange":
+                    saveableListener.onChange(null, null)
+                    break;
                 case "Saveable.onChange":
                     saveableListener.onChange(null, null)
                     break;
