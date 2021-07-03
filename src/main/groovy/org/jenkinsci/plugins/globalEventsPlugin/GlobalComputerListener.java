@@ -37,7 +37,7 @@ public class GlobalComputerListener extends ComputerListener {
 
     @Override
     public void onLaunchFailure(final Computer computer, final TaskListener listener) {
-        this.getParentPluginDescriptor().processEvent(Event.COMPUTER_LAUNCH_FAILURE, log, new HashMap<Object, Object>() {{
+        this.getParentPluginDescriptor().processEvent(Event.NODE_LAUNCH_FAILURE, log, new HashMap<Object, Object>() {{
             put("computer", computer);
             put("listener", listener);
         }});
@@ -45,7 +45,7 @@ public class GlobalComputerListener extends ComputerListener {
 
     @Override
     public void onOnline(final Computer computer, final TaskListener listener) {
-        this.getParentPluginDescriptor().processEvent(Event.COMPUTER_ONLINE, log, new HashMap<Object, Object>() {{
+        this.getParentPluginDescriptor().processEvent(Event.NODE_ONLINE, log, new HashMap<Object, Object>() {{
             put("computer", computer);
             put("listener", listener);
         }});
@@ -53,7 +53,7 @@ public class GlobalComputerListener extends ComputerListener {
 
     @Override
     public void onOffline(final Computer computer, final OfflineCause cause) {
-        this.getParentPluginDescriptor().processEvent(Event.COMPUTER_OFFLINE, log, new HashMap<Object, Object>() {{
+        this.getParentPluginDescriptor().processEvent(Event.NODE_OFFLINE, log, new HashMap<Object, Object>() {{
             put("computer", computer);
             put("cause", cause);
         }});
@@ -61,25 +61,17 @@ public class GlobalComputerListener extends ComputerListener {
 
     @Override
     public void onTemporarilyOnline(final Computer computer) {
-        this.getParentPluginDescriptor().processEvent(Event.COMPUTER_TEMP_ONLINE, log, new HashMap<Object, Object>() {{
+        this.getParentPluginDescriptor().processEvent(Event.NODE_TEMP_ONLINE, log, new HashMap<Object, Object>() {{
             put("computer", computer);
         }});
     }
 
     @Override
     public void onTemporarilyOffline(final Computer computer, final OfflineCause cause) {
-        this.getParentPluginDescriptor().processEvent(Event.COMPUTER_TEMP_OFFLINE, log, new HashMap<Object, Object>() {{
+        this.getParentPluginDescriptor().processEvent(Event.NODE_TEMP_OFFLINE, log, new HashMap<Object, Object>() {{
             put("computer", computer);
             put("cause", cause);
         }});
     }
-
-    @Override
-    public void onConfigurationChange() {
-        this.getParentPluginDescriptor().processEvent(Event.COMPUTER_CONFIG_CHANGE, log, new HashMap<Object, Object>() {{
-        }});
-    }
-
-
 }
 

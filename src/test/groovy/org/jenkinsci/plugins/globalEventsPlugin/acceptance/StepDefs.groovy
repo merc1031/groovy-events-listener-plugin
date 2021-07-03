@@ -10,9 +10,7 @@ import org.jenkinsci.plugins.globalEventsPlugin.GlobalEventsPluginTest
 import org.jenkinsci.plugins.globalEventsPlugin.GlobalItemListener
 import org.jenkinsci.plugins.globalEventsPlugin.GlobalRunListener
 import org.jenkinsci.plugins.globalEventsPlugin.GlobalComputerListener
-import org.jenkinsci.plugins.globalEventsPlugin.GlobalNodeListener
 import org.jenkinsci.plugins.globalEventsPlugin.GlobalQueueListener
-import org.jenkinsci.plugins.globalEventsPlugin.GlobalSaveableListener
 import org.jenkinsci.plugins.globalEventsPlugin.LoggerTrap
 
 class StepDefs {
@@ -20,10 +18,8 @@ class StepDefs {
     GlobalEventsPlugin.DescriptorImpl plugin
     GlobalRunListener runListener
     GlobalComputerListener computerListener
-    GlobalNodeListener nodeListener
     GlobalQueueListener queueListener
     GlobalItemListener itemListener
-    GlobalSaveableListener saveableListener
     LoggerTrap logger
     String groovyScript
     FormValidation validationResponse
@@ -46,16 +42,9 @@ class StepDefs {
         computerListener.parentPluginDescriptorOverride = plugin
         computerListener.log = logger
 
-        nodeListener = new GlobalNodeListener()
-        nodeListener.parentPluginDescriptorOverride = plugin
-        nodeListener.log = logger
-
         queueListener = new GlobalQueueListener()
         queueListener.parentPluginDescriptorOverride = plugin
         queueListener.log = logger
-        saveableListener = new GlobalSaveableListener()
-        saveableListener.parentPluginDescriptorOverride = plugin
-        saveableListener.log = logger
 
         itemListener = new GlobalItemListener()
         itemListener.parentPluginDescriptorOverride = plugin
@@ -93,9 +82,6 @@ class StepDefs {
     void the_event_is_triggered(String method) {
         try {
             switch (method) {
-                case "Run.onInitialize":
-                    runListener.onInitialize(null, null)
-                    break
                 case "Run.onStarted":
                     runListener.onStarted(null, null)
                     break
@@ -107,15 +93,6 @@ class StepDefs {
                     break
                 case "Run.onDeleted":
                     runListener.onDeleted(null)
-                    break
-                case "Node.onCreated":
-                    nodeListener.onCreated(null)
-                    break
-                case "Node.onUpdated":
-                    nodeListener.onUpdated(null, null)
-                    break
-                case "Node.onDeleted":
-                    nodeListener.onDeleted(null)
                     break
                 case "Computer.onLaunchFailure":
                     computerListener.onLaunchFailure(null, null)
@@ -131,27 +108,15 @@ class StepDefs {
                     break
                 case "Computer.onTemporarilyOffline":
                     computerListener.onTemporarilyOffline(null, null)
-                    break;
-                case "Computer.onConfigurationChange":
-                    computerListener.onConfigurationChange()
-                    break;
+                    break
                 case "Queue.onEnterWaiting":
                     queueListener.onEnterWaiting(null)
-                    break
-                case "Queue.onLeaveWaiting":
-                    queueListener.onLeaveWaiting(null)
                     break
                 case "Queue.onEnterBlocked":
                     queueListener.onEnterBlocked(null)
                     break
-                case "Queue.onLeaveBlocked":
-                    queueListener.onLeaveBlocked(null)
-                    break
                 case "Queue.onEnterBuildable":
                     queueListener.onEnterBuildable(null)
-                    break
-                case "Queue.onLeaveBuildable":
-                    queueListener.onLeaveBuildable(null)
                     break
                 case "Queue.onLeft":
                     queueListener.onLeft(null)
@@ -174,9 +139,6 @@ class StepDefs {
                 case "Item.onCreated":
                     itemListener.onCreated(null)
                     break
-                case "Saveable.onChange":
-                    saveableListener.onChange(null, null)
-                    break;
             }
         } catch (Throwable t) {
             t.printStackTrace()

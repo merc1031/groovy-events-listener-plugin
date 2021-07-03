@@ -48,12 +48,6 @@
                 </f:entry>
             </f:section>
             <f:section title="Job run">
-                <f:entry title="Initialize">
-                    <f:checkbox
-                        field="RunListener__onInitialize"
-                        checked="${descriptor.isEventEnabled('RunListener.onInitialize')}"
-                    />
-                </f:entry>
                 <f:entry title="Started">
                     <f:checkbox
                         field="RunListener__onStarted"
@@ -79,7 +73,7 @@
                     />
                 </f:entry>
             </f:section>
-            <f:section title="Computer Activity">
+            <f:section title="Node Activity">
                 <f:entry title="Launch Failure">
                     <f:checkbox
                         field="ComputerListener__onLaunchFailure"
@@ -110,68 +104,24 @@
                         checked="${descriptor.isEventEnabled('ComputerListener.onTemporarilyOffline')}"
                     />
                 </f:entry>
-                <f:entry title="ConfigurationChange">
-                    <f:checkbox
-                        field="ComputerListener__onConfigurationChange"
-                        checked="${descriptor.isEventEnabled('ComputerListener.onConfigurationChange')}"
-                    />
-                </f:entry>
-            </f:section>
-            <f:section title="Node Activity">
-                <f:entry title="Created">
-                    <f:checkbox
-                        field="NodeListener__onCreated"
-                        checked="${descriptor.isEventEnabled('NodeListener.onCreated')}"
-                    />
-                </f:entry>
-                <f:entry title="Updated">
-                    <f:checkbox
-                        field="NodeListener__onUpdated"
-                        checked="${descriptor.isEventEnabled('NodeListener.onUpdatd')}"
-                    />
-                </f:entry>
-                <f:entry title="Deleted">
-                    <f:checkbox
-                        field="NodeListener__onDeleted"
-                        checked="${descriptor.isEventEnabled('NodeListener.onDeleted')}"
-                    />
-                </f:entry>
             </f:section>
             <f:section title="Job Queue">
-                <f:entry title="Enter Waiting">
+                <f:entry title="Waiting">
                     <f:checkbox
                         field="QueueListener__onEnterWaiting"
                         checked="${descriptor.isEventEnabled('QueueListener.onEnterWaiting')}"
                     />
                 </f:entry>
-                <f:entry title="Leave Waiting">
-                    <f:checkbox
-                        field="QueueListener__onLeaveWaiting"
-                        checked="${descriptor.isEventEnabled('QueueListener.onLeaveWaiting')}"
-                    />
-                </f:entry>
-                <f:entry title="Enter Blocked">
+                <f:entry title="Blocked">
                     <f:checkbox
                         field="QueueListener__onEnterBlocked"
                         checked="${descriptor.isEventEnabled('QueueListener.onEnterBlocked')}"
                     />
                 </f:entry>
-                <f:entry title="Leave Blocked">
-                    <f:checkbox
-                        field="QueueListener__onLeaveBlocked"
-                        checked="${descriptor.isEventEnabled('QueueListener.onLeaveBlocked')}"
-                    />
-                </f:entry>
-                <f:entry title="Enter Buildable">
+                <f:entry title="Buildable">
                     <f:checkbox
                         field="QueueListener__onEnterBuildable"
                         checked="${descriptor.isEventEnabled('QueueListener.onEnterBuildable')}"
-                    />
-                </f:entry>
-                <f:entry title="Leave Buildable">
-                    <f:checkbox
-                        field="QueueListener__onLeaveBuildable"
-                        checked="${descriptor.isEventEnabled('QueueListener.onLeaveBuildable')}"
                     />
                 </f:entry>
                 <f:entry title="Left">
@@ -216,14 +166,6 @@
                     <f:checkbox
                             field="ItemListener__onUpdated"
                             checked="${descriptor.isEventEnabled('ItemListener.onUpdated')}"
-                    />
-                </f:entry>
-            </f:section>
-            <f:section title="Saveable Activity">
-                <f:entry title="Change">
-                    <f:checkbox
-                        field="SaveableListener__onChange"
-                        checked="${descriptor.isEventEnabled('SaveableListener.onChange')}"
                     />
                 </f:entry>
             </f:section>

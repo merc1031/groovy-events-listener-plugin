@@ -8,7 +8,7 @@ ext {
     /* optional - set variable enforceJavaVersion */
     enforceVersionFlag = project.getProperties().containsKey('enforceJavaVersion')
     javaVersion = project.getProperties().get('enforceJavaVersion') ?: JavaVersion.VERSION_1_6
-    compileTasks = [compileJava, compileGroovy]
+    compileTasks = [compileJava, compileTestJava, compileGroovy, compileTestGroovy]
 }
 
 sourceCompatibility = javaVersion
@@ -19,7 +19,7 @@ repositories {
 }
 
 ext {
-    groovyVersion = '2.4.12'
+    groovyVersion = '2.4.8'
     customJvmArgs = ['-Xmx128m']
 }
 
@@ -32,7 +32,7 @@ sourceSets.test.compileClasspath += configurations.providedCompile
 sourceSets.test.runtimeClasspath += configurations.providedCompile
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '5.6'
+    gradleVersion = '2.14'
 
     def jvmOpts = customJvmArgs.join(' ')
     inputs.property('jvmOpts', jvmOpts)
