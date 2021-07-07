@@ -162,7 +162,7 @@ class GlobalEventsPlugin extends Plugin implements Describable<GlobalEventsPlugi
         }
 
         String getDisplayName() {
-            return "groovy-events-listener-plugin"
+            return "groovy-events-listener"
         }
 
         /**

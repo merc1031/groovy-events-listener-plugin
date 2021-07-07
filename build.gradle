@@ -72,7 +72,7 @@ task startJenkins(type: JenkinsServerTask, dependsOn: [jpi, test]){}
 jenkinsPlugin {
     // always use latest LTS!
     coreVersion = '2.263.3'
-    shortName = 'events'
+    shortName = 'groovy-events-listener'
     displayName = jenkinsDisplayName
 
     def jenkinsDisplayNameEncoded = java.net.URLEncoder.encode(jenkinsDisplayName, "UTF-8")
@@ -175,7 +175,7 @@ class JenkinsServerTask extends DefaultTask {
 
     private static void generateHpl() {
         def from = new File("build/libs/groovy-events-listener.hpi")
-        def to = new File("work/plugins/groovy-events-listener-plugin.hpi")
+        def to = new File("work/plugins/groovy-events-listener.hpi")
         assert from.exists()
         to.parentFile.mkdirs()
         Files.copy(from.toPath(), to.toPath(), StandardCopyOption.REPLACE_EXISTING)
