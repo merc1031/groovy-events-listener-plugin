@@ -5,13 +5,13 @@ plugins {
 
 sourceCompatibility = JavaVersion.VERSION_1_8
 
-if (JavaVersion.current() != JavaVersion.VERSION_1_8) {
-    throw new GradleException("Build requires Java ${JavaVersion.VERSION_1_8}")
+if (JavaVersion.current() < JavaVersion.VERSION_1_8) {
+    throw new GradleException("Build requires Java >= ${JavaVersion.VERSION_1_8}")
 }
 
 jenkinsPlugin {
     coreVersion = '2.143'
-    shortName = project.name
+    shortName = "groovy-events-listener"
     displayName = jenkinsDisplayName
     url = "https://github.com/jenkinsci/$project.name"
     gitHubUrl = "https://github.com/jenkinsci/$project.name"
@@ -29,7 +29,7 @@ jenkinsPlugin {
 }
 
 dependencies {
-    implementation 'org.codehaus.groovy:groovy-all:2.4.12' // add the Groovy lib to the plugin to make @Grab work
+    implementation 'org.codehaus.groovy:groovy-all:2.4.21' // add the Groovy lib to the plugin to make @Grab work
     implementation 'org.apache.ivy:ivy:2.4.0'              // required for @Grab
 
     testImplementation 'io.cucumber:cucumber-junit:4.8.1'
