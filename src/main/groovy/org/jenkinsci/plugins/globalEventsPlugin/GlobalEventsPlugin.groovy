@@ -37,7 +37,6 @@ class GlobalEventsPlugin extends Plugin implements Describable<GlobalEventsPlugi
                 }
             }, TimeUnit.MINUTES)
 
-    @Override
     void start() {
         getDescriptor().processEvent(Event.PLUGIN_STARTED, log, [:])
         log.fine(">>> Initialising ${this.class.simpleName}... [DONE]")

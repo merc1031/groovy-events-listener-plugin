@@ -38,21 +38,42 @@ public class GlobalQueueListener extends QueueListener {
 
     @Override
     public void onEnterWaiting(final WaitingItem item) {
-        this.getParentPluginDescriptor().processEvent(Event.QUEUE_WAITING, log, new HashMap<Object, Object>() {{
+        this.getParentPluginDescriptor().processEvent(Event.QUEUE_ENTER_WAITING, log, new HashMap<Object, Object>() {{
+            put("item", item);
+        }});
+    }
+
+    @Override
+    public void onLeaveWaiting(final WaitingItem item) {
+        this.getParentPluginDescriptor().processEvent(Event.QUEUE_LEAVE_WAITING, log, new HashMap<Object, Object>() {{
             put("item", item);
         }});
     }
 
     @Override
     public void onEnterBlocked(final BlockedItem item) {
-        this.getParentPluginDescriptor().processEvent(Event.QUEUE_BLOCKED, log, new HashMap<Object, Object>() {{
+        this.getParentPluginDescriptor().processEvent(Event.QUEUE_ENTER_BLOCKED, log, new HashMap<Object, Object>() {{
+            put("item", item);
+        }});
+    }
+
+    @Override
+    public void onLeaveBlocked(final BlockedItem item) {
+        this.getParentPluginDescriptor().processEvent(Event.QUEUE_LEAVE_BLOCKED, log, new HashMap<Object, Object>() {{
             put("item", item);
         }});
     }
 
     @Override
     public void onEnterBuildable(final BuildableItem item) {
-        this.getParentPluginDescriptor().processEvent(Event.QUEUE_BUILDABLE, log, new HashMap<Object, Object>() {{
+        this.getParentPluginDescriptor().processEvent(Event.QUEUE_ENTER_BUILDABLE, log, new HashMap<Object, Object>() {{
+            put("item", item);
+        }});
+    }
+
+    @Override
+    public void onLeaveBuildable(final BuildableItem item) {
+        this.getParentPluginDescriptor().processEvent(Event.QUEUE_LEAVE_BUILDABLE, log, new HashMap<Object, Object>() {{
             put("item", item);
         }});
     }
